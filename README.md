@@ -38,7 +38,7 @@ powershell -command "[Environment]::SetEnvironmentVariable('Path', [Environment]
 Start Kong
 
 ```sh
-docker-compose up -d
+docker-compose --profile database up -d
 ```
 
 Sync Kong configuration
