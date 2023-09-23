@@ -47,7 +47,7 @@ Sync Kong configuration
 deck sync
 ```
 
-After done with the configuration, run the following command to export the configuration to `kong.yaml` file.
+After done with editing or adding services and routes via Kong Manager GUI, run the following command to export the configuration to `kong.yaml` file.
 
 ```sh
 deck dump
@@ -55,11 +55,11 @@ deck dump
 
 ## Routes
 
-| Route                 | Description     |
-| --------------------- | --------------- |
-| http://localhost:8000 | Kong Client API |
-| http://localhost:8001 | Kong Admin API  |
-| http://localhost:8002 | Kong GUI        |
+| Route                 | Description      |
+| --------------------- | ---------------- |
+| http://localhost:8000 | Kong Client API  |
+| http://localhost:8001 | Kong Admin API   |
+| http://localhost:8002 | Kong Manager GUI |
 
 ## Calling the API
 
