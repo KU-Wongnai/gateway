@@ -53,7 +53,7 @@ After done with editing or adding services and routes via Kong Manager GUI, run 
 deck dump
 ```
 
-Open http://localhost:8000 and you should see something like this.
+Open http://localhost:8002 and you should see something like this.
 
 ![kong](./docs/kong-preview.png)
 
