@@ -23,8 +23,8 @@ volumes:
 networks:
   kong-net:
     external: false
-  ku-wongnai_ku-wongnai:
-    external: true
+  # ku-wongnai_ku-wongnai:
+  #   external: true
 
 services:
   kong-migrations:
@@ -73,7 +73,7 @@ services:
       - kong_postgres_password
     networks:
       - kong-net
-      - ku-wongnai_ku-wongnai
+      # - ku-wongnai_ku-wongnai
     ports:
       # The following two environment variables default to an insecure value (0.0.0.0)
       # according to the CIS Security test.

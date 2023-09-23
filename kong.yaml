@@ -2,6 +2,29 @@ _format_version: "3.0"
 services:
 - connect_timeout: 60000
   enabled: true
+  host: host.docker.internal
+  name: file-storage
+  port: 8093
+  protocol: http
+  read_timeout: 60000
+  retries: 5
+  routes:
+  - https_redirect_status_code: 426
+    name: upload
+    path_handling: v0
+    paths:
+    - /file
+    preserve_host: false
+    protocols:
+    - http
+    - https
+    regex_priority: 0
+    request_buffering: true
+    response_buffering: true
+    strip_path: true
+  write_timeout: 60000
+- connect_timeout: 60000
+  enabled: true
   host: mockbin.org
   name: mockbin
   port: 80
@@ -26,6 +49,52 @@ services:
 - connect_timeout: 60000
   enabled: true
   host: host.docker.internal
+  name: notification-service
+  port: 80
+  protocol: http
+  read_timeout: 60000
+  retries: 5
+  routes:
+  - https_redirect_status_code: 426
+    name: notifications
+    path_handling: v0
+    paths:
+    - /noti
+    preserve_host: false
+    protocols:
+    - http
+    - https
+    regex_priority: 0
+    request_buffering: true
+    response_buffering: true
+    strip_path: true
+  write_timeout: 60000
+- connect_timeout: 60000
+  enabled: true
+  host: host.docker.internal
+  name: restaurant-service
+  port: 8092
+  protocol: http
+  read_timeout: 60000
+  retries: 5
+  routes:
+  - https_redirect_status_code: 426
+    name: restaurants
+    path_handling: v0
+    paths:
+    - /restaurant
+    preserve_host: false
+    protocols:
+    - http
+    - https
+    regex_priority: 0
+    request_buffering: true
+    response_buffering: true
+    strip_path: true
+  write_timeout: 60000
+- connect_timeout: 60000
+  enabled: true
+  host: host.docker.internal
   name: review-service
   port: 8091
   protocol: http
@@ -33,7 +102,7 @@ services:
   retries: 5
   routes:
   - https_redirect_status_code: 426
-    name: reviews.findAll
+    name: reviews
     path_handling: v0
     paths:
     - /review
@@ -48,7 +117,7 @@ services:
   write_timeout: 60000
 - connect_timeout: 60000
   enabled: true
-  host: localhost
+  host: host.docker.internal
   name: user-service
   path: /
   port: 8090
@@ -57,12 +126,10 @@ services:
   retries: 5
   routes:
   - https_redirect_status_code: 426
-    methods:
-    - GET
-    name: email
+    name: users
     path_handling: v0
     paths:
-    - /api/email
+    - /user
     preserve_host: false
     protocols:
     - http

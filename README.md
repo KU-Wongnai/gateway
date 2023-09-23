@@ -61,10 +61,21 @@ deck dump
 | http://localhost:8001 | Kong Admin API  |
 | http://localhost:8002 | Kong GUI        |
 
+## Calling the API
+
+`<service-name>` is the name of the service that you want to call. e.g. `user`, `restaurant`, `review`, `noti`, `file`
+
+`<route-path>` is the path of the route that you want to call. Same as the path that you defined in the service.
+
+```
+http://localhost:8000/<service-name>/<route-path>
+```
+
 ## TODOs
 
-- [ ] Add more services and routes
-- [ ] Write a documentation
+- [x] Add more services and routes
+- [x] Write a documentation
+- [ ] Include more routes when other services are ready
 
 ## Reference
 
