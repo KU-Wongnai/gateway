@@ -97,6 +97,52 @@ services:
 - connect_timeout: 60000
   enabled: true
   host: host.docker.internal
+  name: order-service
+  port: 8094
+  protocol: http
+  read_timeout: 60000
+  retries: 5
+  routes:
+  - https_redirect_status_code: 426
+    name: orders
+    path_handling: v0
+    paths:
+    - /order
+    preserve_host: false
+    protocols:
+    - http
+    - https
+    regex_priority: 0
+    request_buffering: true
+    response_buffering: true
+    strip_path: true
+  write_timeout: 60000
+- connect_timeout: 60000
+  enabled: true
+  host: host.docker.internal
+  name: payment-service
+  port: 8095
+  protocol: http
+  read_timeout: 60000
+  retries: 5
+  routes:
+  - https_redirect_status_code: 426
+    name: payment
+    path_handling: v0
+    paths:
+    - /payment
+    preserve_host: false
+    protocols:
+    - http
+    - https
+    regex_priority: 0
+    request_buffering: true
+    response_buffering: true
+    strip_path: true
+  write_timeout: 60000
+- connect_timeout: 60000
+  enabled: true
+  host: host.docker.internal
   name: restaurant-service
   port: 8092
   protocol: http
